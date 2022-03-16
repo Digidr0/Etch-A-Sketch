@@ -2,31 +2,44 @@
     padding: 0;
     margin: 0;
     /* border: 1px solid red; */
-    color: rgb(red, green, blue);
+    color: white;
     font-family: geometria;
+    font-size: 20px;
+    font-weight: 500;
 }
 body{
   height: 100vh;
-    background-color: darkcyan;
+    background-color: #202020;
 }
 
 :root {
     --grid-z: 1;
     --cell-size: 1;
-    --base-color: white;
+    --first-color: #353535;
     --second-color: crimson;
+    --rainbow-color: white;
+    --background-color: #202020;
+
   }
 
   .user-interface{
     display: flex;
-    gap: 16px;
+    gap: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+    border-bottom: 2px var(--first-color) solid;
   }
 
+  .color-container, .range-container{
+    text-align: center;
+  }
   .toggle-container{
     display: flex;
     display: grid;
     justify-content: space-between;
     grid-template-columns: 3;
+
   }
 
   input{
@@ -34,23 +47,21 @@ body{
     margin: 5px;
 
   }
-  .rainbow{
-    color: red;
-  }
   .toggle-container{
     display: flex;
+    align-items: center;
     gap: 10px;
   }
 
 .grid-block {
-    color: white;
     border: none;
-    outline: 2px solid rgba(72, 61, 139, 0.2);
-    background-color:var(--base-color);
+    outline: 2px solid rgba(255, 255, 255, 0.2);
+    color:var(--base-color);
+    background-color: var(--background-color);
 }
 
 .grid-block:hover{
-filter: brightness(80%);
+filter: brightness(150%);
 transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
@@ -61,15 +72,16 @@ button {
     border-radius: 5px;
     text-decoration: none;
     padding: 5px;
+    margin: 5px;
     width: 10rem;
-    height: auto;
-    font-size: 16px;
+    height: 2.5rem;
+    font-size: 1.2em;
     text-shadow: 0px 0px 2px black;
     
 }
 
-
 .grid-container {
+  margin: 20px;
   display: flex;
   display: grid;
   justify-content: center;

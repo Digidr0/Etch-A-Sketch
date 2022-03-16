@@ -6,22 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="toggle.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/toggle.css">
+    <link rel="stylesheet" href="./styles/range.css">
+    <link rel="stylesheet" href="./styles/color-circle.css">
+    <link rel="stylesheet" href="./styles//rainbow.css">
 </head>
 
 <body>
     <div class="user-interface">
+        <div class="color-container">
+            <label for="paint-color">Paint</label>
+            <input type="color" id="paint-color" class="color paint-color" value="#dc143c"></input>
+        </div>
 
-        <label for="paint-color">Paint</label>
-        <input type="color"  id="paint-color" class="color paint-color" value="#dc143c"></input>
+        <div class="color-container">
+            <label for="base-color">Fill</label>
+            <input type="color" class="color base-color" value="#222222"></input>
+        </div>
 
-        <label for="happy">Fill all</label>
-        <input type="color" class="color base-color" value="#ffffff"></input>
-        
-        <input type="checkbox" class="rainbow"></input>
-        <label for="happy">Rainbow color</label>
-        
+        <input type="checkbox" id="rainbow-checkbox"></input>
+        <label for="rainbow-checkbox">Rainbow color</label>
+
         <div class="toggle-container">
             <P class="toggle-text-left">Click</p>
             <label class="switch" for="toggle">
@@ -30,9 +36,11 @@
             </label>
             <p class="toggle-text-right">Mouse</p>
         </div>
-
-        <p>Size <span class="size-title">10 X 10</span></p>
-        <input class="grid-size" type="range" min="3" max="64" value="10">
+        <div class="range-container">
+            <p>Size <span class="size-title">10 X 10</span></p>
+            <input class="grid-size" type="range" min="3" max="64" value="10">
+            
+        </div>
         <button class="button-clear">Clear grid</button>
     </div>
 

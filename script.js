@@ -3,7 +3,7 @@ const btnNew = document.querySelector('.button-new');
 const btnClear = document.querySelector('.button-clear');
 const paintColorInput  = document.querySelector('.paint-color');
 const baseColorInput  = document.querySelector('.base-color');
-const rainbowColorInput = document.querySelector('.rainbow');
+const rainbowColorInput = document.querySelector('#rainbow-checkbox');
 const gridSizeInput = document.querySelector('.grid-size');
 const sizeTitle = document.querySelector('.size-title');
 const toggleTextLeft = document.querySelector('.toggle-text-left');
@@ -17,13 +17,13 @@ let gridBlock = {};
 let cell = [];
 let z = 10
 
-const gridSize = 640; //px
+const gridSize = screen.height*0.9; //px
 
 function randomColor() {
-  let red = Math.floor(Math.random() * 255);
-  let green = Math.floor(Math.random() * 255);
-  let blue = Math.floor(Math.random() * 255);
-  return `rgb(${red}, ${green}, ${blue})`
+  let h = Math.floor(Math.random() * 255);
+  let s = Math.floor(Math.random() * 40 + 60);
+  let l = Math.floor(Math.random() * 40 + 50);
+  return `hsl(${h}, ${s}%, ${l}%)`
 }
 
 function createGrid(z) {
@@ -39,8 +39,6 @@ function createGrid(z) {
   };
   gridBlock = document.querySelectorAll(".grid-block");
 };
-
-
 
 function clearGrid() {
     gridBlock.forEach(e => {
@@ -87,12 +85,9 @@ function toggle(){
     toggleTextRight.style.setProperty("color", 'white');
     toggleTextLeft.style.setProperty("color", 'var(--second-color)');
     InputType = "click";
-
   }
 })
 }
-
-
 
 createGrid(z);
 
@@ -106,9 +101,10 @@ gridSizeInput.addEventListener("mousemove", function newGrid() {
   });
   
 btnClear.addEventListener("click", clearGrid);
+rainbowColorInput.addEventListener("click",   function(){document.documentElement.style.setProperty(`--rainbow-color`, randomColor())});
 
-paintColorInput.addEventListener("change", colorUpdate)
-baseColorInput.addEventListener("change", colorFill)
-paintColorInput.addEventListener("mouseover", colorUpdate)
+paintColorInput.addEventListener("change", colorUpdate);
+baseColorInput.addEventListener("change", colorFill);
+paintColorInput.addEventListener("mouseover", colorUpdate);
 
 
