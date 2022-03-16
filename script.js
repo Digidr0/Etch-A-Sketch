@@ -9,7 +9,7 @@ const sizeTitle = document.querySelector('.size-title');
 const toggleTextLeft = document.querySelector('.toggle-text-left');
 const toggleTextRight = document.querySelector('.toggle-text-right');
 
-let paintColor = 'crimson'; //none
+let paintColor = 'crimson';
 let defaultColor = 'white';
 let InputType = "click"
 
@@ -35,7 +35,6 @@ function createGrid(z) {
     gridContainer.appendChild(cell).className = "grid-block";
     cell.appendChild;
     cell.addEventListener(InputType, activatePen);
-
   };
   gridBlock = document.querySelectorAll(".grid-block");
 };
@@ -59,15 +58,11 @@ function activatePen(e) {
   } else {
   this.style = `background-color: ${randomColor()}`;
   }
-
-
 }
 
 function colorUpdate(){
   paintColor = this.value;
   document.documentElement.style.setProperty(`--second-color`, this.value)
-
-
 }
 
 function toggle(){
@@ -97,7 +92,6 @@ gridSizeInput.addEventListener("mousemove", function newGrid() {
     });
     createGrid(this.value);
     sizeTitle.textContent = `${this.value} X ${this.value}`
-
   });
   
 btnClear.addEventListener("click", clearGrid);
