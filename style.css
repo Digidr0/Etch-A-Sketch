@@ -1,9 +1,13 @@
 *{
     padding: 0;
     margin: 0;
+    /* border: 1px solid red; */
+    color: rgb(red, green, blue);
+    font-family: geometria;
 }
 body{
-    background-color: darkslategray;
+  height: 100vh;
+    background-color: darkcyan;
 }
 
 :root {
@@ -12,28 +16,42 @@ body{
     --base-color: white;
     --second-color: crimson;
   }
-  
-  .grid-container {
+
+  .user-interface{
+    display: flex;
+    gap: 16px;
+  }
+
+  .toggle-container{
     display: flex;
     display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(var(--grid-z), var(--cell-size));
-    grid-template-rows:repeat(var(--grid-z), var(--cell-size));
-    
+    justify-content: space-between;
+    grid-template-columns: 3;
+  }
 
+  input{
+    display: flex;
+    margin: 5px;
+
+  }
+  .rainbow{
+    color: red;
+  }
+  .toggle-container{
+    display: flex;
+    gap: 10px;
   }
 
 .grid-block {
     color: white;
     border: none;
-    outline: 2px solid rgba(52, 44, 102, 0.212);
+    outline: 2px solid rgba(72, 61, 139, 0.2);
     background-color:var(--base-color);
 }
 
 .grid-block:hover{
 filter: brightness(80%);
-transition: all 0.15s;
+transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 button {
@@ -42,61 +60,20 @@ button {
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    display: inline-block;
     padding: 5px;
+    width: 10rem;
+    height: auto;
     font-size: 16px;
+    text-shadow: 0px 0px 2px black;
     
 }
 
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .2s;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
+.grid-container {
+  display: flex;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(var(--grid-z), var(--cell-size));
+  grid-template-rows:repeat(var(--grid-z), var(--cell-size));
+}

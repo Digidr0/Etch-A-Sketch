@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="toggle.css">
 </head>
+
 <body>
     <div class="user-interface">
-        <input type="color" class="color" id="paint-color" value="#dc143c">Paint</input>
-        <input type="color" class="color" id="base-color" value="#ffffff">Fill all grid</input>
-        <div class="inputs">
-            <label class="switch">
-                <input type="checkbox" id="toggle-mouse-click" onclick="toggle()">
+
+        <label for="paint-color">Paint</label>
+        <input type="color"  id="paint-color" class="color paint-color" value="#dc143c"></input>
+
+        <label for="happy">Fill all</label>
+        <input type="color" class="color base-color" value="#ffffff"></input>
+        
+        <input type="checkbox" class="rainbow"></input>
+        <label for="happy">Rainbow color</label>
+        
+        <div class="toggle-container">
+            <P class="toggle-text-left">Click</p>
+            <label class="switch" for="toggle">
+                <input type="checkbox" id="toggle" onclick="toggle()">
                 <span class="slider round"></span>
-              </label>
+            </label>
+            <p class="toggle-text-right">Mouse</p>
         </div>
-        <button class="button-new">New grid</button>
+
+        <p>Size <span class="size-title">10 X 10</span></p>
+        <input class="grid-size" type="range" min="3" max="64" value="10">
         <button class="button-clear">Clear grid</button>
     </div>
+
     <div class="grid-container"></div>
 </body>
 <script src="script.js"></script>
+
 </html>

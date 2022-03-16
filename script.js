@@ -1,30 +1,29 @@
 const gridContainer = document.querySelector(".grid-container");
-const btnNew = document.querySelector(".button-new");
-const btnClear = document.querySelector(".button-clear");
-const paintColorInput  = document.querySelector('#paint-color');
-const baseColorInput  = document.querySelector('#base-color');
+const btnNew = document.querySelector('.button-new');
+const btnClear = document.querySelector('.button-clear');
+const paintColorInput  = document.querySelector('.paint-color');
+const baseColorInput  = document.querySelector('.base-color');
+const rainbowColorInput = document.querySelector('.rainbow');
+const gridSizeInput = document.querySelector('.grid-size');
+const sizeTitle = document.querySelector('.size-title');
+const toggleTextLeft = document.querySelector('.toggle-text-left');
+const toggleTextRight = document.querySelector('.toggle-text-right');
+
 let paintColor = 'crimson'; //none
 let defaultColor = 'white';
-
-let inputType = "click"
+let InputType = "click"
 
 let gridBlock = {};
 let cell = [];
-let z = 16
+let z = 10
 
 const gridSize = 640; //px
 
-function toggle(){
-  var toggleInput = document.getElementById("toggle-mouse-click");
-    gridBlock.forEach(e =>{
-  if (toggleInput.checked == true){
-    e.removeEventListener("click", activatePen);
-    e.addEventListener("mouseover", activatePen);
-  } else {
-    e.removeEventListener("mouseover", activatePen);
-    e.addEventListener("click", activatePen);
-  }
-})
+function randomColor() {
+  let red = Math.floor(Math.random() * 255);
+  let green = Math.floor(Math.random() * 255);
+  let blue = Math.floor(Math.random() * 255);
+  return `rgb(${red}, ${green}, ${blue})`
 }
 
 function createGrid(z) {
@@ -32,22 +31,16 @@ function createGrid(z) {
     gridContainer.style.setProperty('--grid-z', z);
     gridContainer.style.setProperty('--cell-size', `${gridSize/z}px`);
     let cell = document.createElement("div");
-    // cell.innerText = (c + 1);
+
     gridContainer.appendChild(cell).className = "grid-block";
     cell.appendChild;
-    cell.addEventListener(inputType, activatePen);
-    console.log(inputType);
+    cell.addEventListener(InputType, activatePen);
 
   };
   gridBlock = document.querySelectorAll(".grid-block");
 };
-function newGrid() {
-  gridBlock.forEach(e => {
-    e.remove();
-  });
 
-  createGrid(prompt('Size', 10))
-};
+
 
 function clearGrid() {
     gridBlock.forEach(e => {
@@ -63,7 +56,12 @@ function colorFill() {
 
 
 function activatePen(e) {
+  if (rainbowColorInput.checked == false){
   this.style = `background-color: ${paintColor}`;
+  } else {
+  this.style = `background-color: ${randomColor()}`;
+  }
+
 
 }
 
@@ -74,8 +72,39 @@ function colorUpdate(){
 
 }
 
+function toggle(){
+  let toggleInput = document.querySelector("#toggle");
+    gridBlock.forEach(e =>{
+  if (toggleInput.checked == true){
+    e.removeEventListener("click", activatePen);
+    e.addEventListener("mouseover", activatePen);
+    toggleTextLeft.style.setProperty("color", 'white');
+    toggleTextRight.style.setProperty("color", 'var(--second-color)');
+    InputType = "mouseover";
+  } else {
+    e.removeEventListener("mouseover", activatePen);
+    e.addEventListener("click", activatePen);
+    toggleTextRight.style.setProperty("color", 'white');
+    toggleTextLeft.style.setProperty("color", 'var(--second-color)');
+    InputType = "click";
+
+  }
+})
+}
+
+
+
 createGrid(z);
-btnNew.addEventListener("click", newGrid);
+
+gridSizeInput.addEventListener("mousemove", function newGrid() {
+    gridBlock.forEach(e => {
+      e.remove();
+    });
+    createGrid(this.value);
+    sizeTitle.textContent = `${this.value} X ${this.value}`
+
+  });
+  
 btnClear.addEventListener("click", clearGrid);
 
 paintColorInput.addEventListener("change", colorUpdate)
