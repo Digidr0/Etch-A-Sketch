@@ -1,22 +1,22 @@
-    .color {
-    -webkit-appearance: none;
-    border: 2px solid var(--second-color);
-    background: none;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    overflow: hidden;
-    outline: none;
-    cursor: pointer;
-  }
+.color {
+  -webkit-appearance: none;
+  border: 2px solid var(--second-color);
+  background: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  transition: border var(--transition-time);
+}
 
-  
-  /* -webkit */
-  .color::-webkit-color-swatch-wrapper {
-    padding: 0;    
-  }
-  
-  .color::-webkit-color-swatch {
-    border: none;  
-    border-radius: 50%;
-  }
+/* -webkit */
+.color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
