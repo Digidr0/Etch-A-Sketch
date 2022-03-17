@@ -17,13 +17,7 @@ let gridBlock = {};
 let cell = [];
 let z = 10;
 
-function gridSize() {
-  if (screen.width > screen.height) {
-    return screen.height * 0.75;
-  } else {
-    return screen.width * 0.75;
-  }
-}
+const gridSize = screen.availHeight * 0.7; //px
 
 function randomColor() {
   let h = Math.floor(Math.random() * 360);
@@ -35,7 +29,7 @@ function randomColor() {
 function createGrid(z) {
   for (c = 0; c < z * z; c++) {
     gridContainer.style.setProperty("--grid-z", z);
-    gridContainer.style.setProperty("--cell-size", `${gridSize() / z}px`);
+    gridContainer.style.setProperty("--cell-size", `${gridSize / z}px`);
     let cell = document.createElement("div");
 
     gridContainer.appendChild(cell).className = "grid-block";
