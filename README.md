@@ -5,9 +5,9 @@
  
  ### Live prewiew you can find [here](https://digidr0.github.io/Etch-A-Sketch/)
  <div>
- <img src="/img/grid.gif" width="320" height="320"/>
- <img src="/img/grid-2.gif" width="320" height="320" />
- <img src="/img/grid-3.gif" width="320" height="320" />
+ <img src="/img/grid.gif" width="300" height="300"/>
+ <img src="/img/grid-2.gif" width="300" height="300" />
+ <img src="/img/grid-3.gif" width="300" height="300" />
  <div>
 
  
